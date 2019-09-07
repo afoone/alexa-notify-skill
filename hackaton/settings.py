@@ -25,7 +25,11 @@ SECRET_KEY = 'vh^-*zo%^5&@@*u-%p-y34lb_&b4_9v=*u8u--sfpdd=egsw0o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '.iprocuratio.com',
+    'localhost',
+
+]
 
 
 # Application definition
@@ -39,6 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
         'rest_framework',
         'seguroencasa',
+            "django_cron",
+
 
 ]
 
@@ -69,6 +75,8 @@ TEMPLATES = [
         },
     },
 ]
+
+
 
 WSGI_APPLICATION = 'hackaton.wsgi.application'
 
@@ -122,3 +130,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+CRON_CLASSES = [
+    "seguroencasa.cron.MyCronJob",
+]
+
+
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = 'a8fc9b957d599d'
+EMAIL_HOST_PASSWORD = '2ca5e65f731317'
+EMAIL_PORT = '2525'
